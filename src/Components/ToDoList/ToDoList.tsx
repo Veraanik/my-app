@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import ToDoListElement from "./ToDoListElement";
 
 type ListElement = {
     name: string;
@@ -17,6 +18,12 @@ const ToDoList = () => {
         setDesk('');
     }
 
+    const OnDeleteClick=(index:number)=>
+    {
+        const fitlered= list
+            .filter((el,i)=>i!==index);
+        setList(fitlered);
+    }
     console.log(list)
     return (
         <div>
@@ -39,18 +46,13 @@ const ToDoList = () => {
                 </button>
             </div>
             <div>
-
                 {
-                    list.map((el, i) => <div>
-
-                            <div>
-                                {el.name}
-                            </div>
-
-                        <div>
-                                {el.desk}
-                            </div>
-                    </div>)
+                    list.map((el, i) =>
+                    <ToDoListElement
+                        OnDeleteClick = { () => OnDeleteClick(i) }
+                        name = {el.name}
+                        desk = {el.desk}
+                        key = {i}/>)
                 }
             </div>
 

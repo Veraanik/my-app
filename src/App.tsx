@@ -6,7 +6,7 @@ import Counter from "./Components/Counter/Counter";
 import ToDoList from "./Components/ToDoList/ToDoList";
 function App() {
   return (
-    <div className="App">'
+    <div className="App">
       {/*<Counter/>*/}
         <ToDoList/>
     </div>
